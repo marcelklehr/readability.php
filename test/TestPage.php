@@ -2,6 +2,8 @@
 
 namespace andreskrey\Readability\Test;
 
+use andreskrey\Readability\Nodes\DOM\DOMDocument;
+
 class TestPage
 {
     private $configuration;
@@ -40,7 +42,12 @@ class TestPage
      */
     public function getExpectedHTML()
     {
-        return $this->expectedHTML;
+        $dom = new DOMDocument('1.0', 'utf-8');
+        // Prepend the XML tag to avoid having issues with special characters. Should be harmless.
+        $dom->loadHTML($this->expectedHTML);
+        $dom->encoding = 'UTF-8';
+
+        return $dom->C14N();
     }
 
     /**
