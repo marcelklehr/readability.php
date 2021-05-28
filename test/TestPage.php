@@ -43,11 +43,12 @@ class TestPage
     public function getExpectedHTML()
     {
         $dom = new DOMDocument('1.0', 'utf-8');
+        $dom->substituteEntities = false;
         // Prepend the XML tag to avoid having issues with special characters. Should be harmless.
         $dom->loadHTML($this->expectedHTML);
         $dom->encoding = 'UTF-8';
 
-        return $dom->C14N();
+        return $dom->getElementsByTagName('body')[0]->C14N();
     }
 
     /**
