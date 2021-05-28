@@ -48,7 +48,7 @@ class TestPage
         $dom->loadHTML($this->expectedHTML);
         $dom->encoding = 'UTF-8';
 
-        return $dom->getElementsByTagName('body')[0]->C14N();
+        return $dom->getElementsByTagName('body')->item(0)->firstChild->C14N();
     }
 
     /**
