@@ -45,7 +45,7 @@ class TestPage
         $dom = new DOMDocument('1.0', 'utf-8');
         $dom->substituteEntities = false;
         // Prepend the XML tag to avoid having issues with special characters. Should be harmless.
-        $dom->loadHTML($this->expectedHTML);
+        $dom->loadHTML('<?xml encoding="UTF-8">'.$this->expectedHTML);
         $dom->encoding = 'UTF-8';
 
         return $dom->getElementsByTagName('body')->item(0)->firstChild->C14N();
