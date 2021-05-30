@@ -1076,7 +1076,7 @@ class Readability
             $scoreThreshold = $lastScore / 3;
 
             /* @var DOMElement $parentOfTopCandidate */
-            while ($parentOfTopCandidate->nodeName !== 'body') {
+            while (!is_null($parentOfTopCandidate) && $parentOfTopCandidate->nodeName !== 'body') {
                 $parentScore = $parentOfTopCandidate->contentScore;
                 if ($parentScore < $scoreThreshold) {
                     break;
@@ -1095,7 +1095,7 @@ class Readability
             // If the top candidate is the only child, use parent instead. This will help sibling
             // joining logic when adjacent content is actually located in parent's sibling node.
             $parentOfTopCandidate = $topCandidate->parentNode;
-            while ($parentOfTopCandidate->nodeName !== 'body' && count(NodeUtility::filterTextNodes($parentOfTopCandidate->childNodes)) === 1) {
+            while (!is_null($parentOfTopCandidate) && $parentOfTopCandidate->nodeName !== 'body' && count(NodeUtility::filterTextNodes($parentOfTopCandidate->childNodes)) === 1) {
                 $topCandidate = $parentOfTopCandidate;
                 $parentOfTopCandidate = $topCandidate->parentNode;
             }
