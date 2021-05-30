@@ -28,7 +28,7 @@
         "psr/log": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5",
+        "phpunit/phpunit": "^9.5 ",
         "monolog/monolog": "^1.24",
         "voku/html-min": "^4.4"
     },
