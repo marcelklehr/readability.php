@@ -5,6 +5,7 @@ namespace andreskrey\Readability\Test;
 use andreskrey\Readability\Configuration;
 use andreskrey\Readability\ParseException;
 use andreskrey\Readability\Readability;
+use voku\helper\HtmlMin;
 
 /**
  * Class ReadabilityTest.
@@ -33,7 +34,14 @@ class ReadabilityTest extends \PHPUnit\Framework\TestCase
         $readability = new Readability($configuration);
         $readability->parse($testPage->getSourceHTML());
 
-        $this->assertSame($testPage->getExpectedHTML(), $readability->getContent(), 'Parsed text does not match the expected one.');
+        $htmlMin = new HtmlMin();
+        $htmlMin->doOptimizeViaHtmlDomParser();
+        $htmlMin->doRemoveSpacesBetweenTags();
+        $htmlMin->doRemoveWhitespaceAroundTags();
+        $htmlMin->doSumUpWhitespace();
+        $htmlMin->doRemoveOmittedHtmlTags(false);
+
+        $this->assertSame($htmlMin->minify($testPage->getExpectedHTML()), $htmlMin->minify($readability->getContent()), 'Parsed text does not match the expected one.');
     }
 
     /**
