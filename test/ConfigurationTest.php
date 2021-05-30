@@ -1,8 +1,8 @@
 <?php
 
-namespace andreskrey\Readability\Test;
+namespace marcelklehr\Readability\Test;
 
-use andreskrey\Readability\Configuration;
+use marcelklehr\Readability\Configuration;
 use Monolog\Handler\NullHandler;
 use Monolog\Logger;
 

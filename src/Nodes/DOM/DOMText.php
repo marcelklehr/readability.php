@@ -1,8 +1,8 @@
 <?php
 
-namespace andreskrey\Readability\Nodes\DOM;
+namespace marcelklehr\Readability\Nodes\DOM;
 
-use andreskrey\Readability\Nodes\NodeTrait;
+use marcelklehr\Readability\Nodes\NodeTrait;
 
 class DOMText extends \DOMText
 {

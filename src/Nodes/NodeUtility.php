@@ -1,11 +1,11 @@
 <?php
 
-namespace andreskrey\Readability\Nodes;
+namespace marcelklehr\Readability\Nodes;
 
-use andreskrey\Readability\Nodes\DOM\DOMDocument;
-use andreskrey\Readability\Nodes\DOM\DOMElement;
-use andreskrey\Readability\Nodes\DOM\DOMNode;
-use andreskrey\Readability\Nodes\DOM\DOMNodeList;
+use marcelklehr\Readability\Nodes\DOM\DOMDocument;
+use marcelklehr\Readability\Nodes\DOM\DOMElement;
+use marcelklehr\Readability\Nodes\DOM\DOMNode;
+use marcelklehr\Readability\Nodes\DOM\DOMNodeList;
 
 /**
  * Class NodeUtility.

@@ -1,6 +1,6 @@
 <?php
 
-namespace andreskrey\Readability;
+namespace marcelklehr\Readability;
 
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;

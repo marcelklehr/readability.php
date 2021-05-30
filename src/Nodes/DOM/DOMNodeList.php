@@ -1,6 +1,6 @@
 <?php
 
-namespace andreskrey\Readability\Nodes\DOM;
+namespace marcelklehr\Readability\Nodes\DOM;
 
 /**
  * Class DOMNodeList.

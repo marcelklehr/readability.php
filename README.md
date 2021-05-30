@@ -1,9 +1,9 @@
 # Readability.php
-[![Latest Stable Version](https://poser.pugx.org/andreskrey/readability.php/v/stable)](https://packagist.org/packages/andreskrey/readability.php) [![Build Status](https://travis-ci.org/andreskrey/readability.php.svg?branch=master)](https://travis-ci.org/andreskrey/readability.php) [![Coverage Status](https://coveralls.io/repos/github/andreskrey/readability.php/badge.svg?branch=master)](https://coveralls.io/github/andreskrey/readability.php/?branch=master) [![StyleCI](https://styleci.io/repos/71042668/shield?branch=master)](https://styleci.io/repos/71042668) [![Total Downloads](https://poser.pugx.org/andreskrey/readability.php/downloads)](https://packagist.org/packages/andreskrey/readability.php) [![Monthly Downloads](https://poser.pugx.org/andreskrey/readability.php/d/monthly)](https://packagist.org/packages/andreskrey/readability.php)
+[![Latest Stable Version](https://poser.pugx.org/marcelklehr/readability.php/v/stable)](https://packagist.org/packages/marcelklehr/readability.php) [![Build Status](https://travis-ci.org/marcelklehr/readability.php.svg?branch=master)](https://travis-ci.org/marcelklehr/readability.php) [![Coverage Status](https://coveralls.io/repos/github/marcelklehr/readability.php/badge.svg?branch=master)](https://coveralls.io/github/marcelklehr/readability.php/?branch=master) [![StyleCI](https://styleci.io/repos/71042668/shield?branch=master)](https://styleci.io/repos/71042668) [![Total Downloads](https://poser.pugx.org/marcelklehr/readability.php/downloads)](https://packagist.org/packages/marcelklehr/readability.php) [![Monthly Downloads](https://poser.pugx.org/marcelklehr/readability.php/d/monthly)](https://packagist.org/packages/marcelklehr/readability.php)
 
 PHP port of *Mozilla's* **[Readability.js](https://github.com/mozilla/readability)**. Parses html text (usually news and other articles) and returns **title**, **author**, **main image** and **text content** without nav bars, ads, footers, or anything that isn't the main body of the text. Analyzes each node, gives them a score, and determines what's relevant and what can be discarded.
 
-![Screenshot](https://raw.githubusercontent.com/andreskrey/readability.php/assets/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/marcelklehr/readability.php/assets/screenshot.png)
 
 The project aim is to be a 1 to 1 port of Mozilla's version and to follow closely all changes introduced there, but there are some major differences on the structure. Most of the code is a 1:1 copy –even the comments were imported– but some functions and structures were adapted to suit better the PHP language.
 
@@ -11,7 +11,7 @@ The project aim is to be a 1 to 1 port of Mozilla's version and to follow closel
 
 ## Requirements
 
-PHP 7.0+, ext-dom, ext-xml, and ext-mbstring. To install all this dependencies (in the rare case your system does not have them already), you could try something like this in *nix like environments:
+PHP 7.3+, ext-dom, ext-xml, and ext-mbstring. To install all this dependencies (in the rare case your system does not have them already), you could try something like this in *nix like environments:
 
 `$ sudo apt-get install php7.1-xml php7.1-mbstring`
 
@@ -19,14 +19,14 @@ PHP 7.0+, ext-dom, ext-xml, and ext-mbstring. To install all this dependencies (
 
 First you have to require the library using composer:
 
-`composer require andreskrey/readability.php`
+`composer require  marcelklehr/readability.php`
 
 Then, create a Readability class and pass a Configuration class, feed the `parse()` function with your HTML and echo the variable:
 
 ```php 
-use andreskrey\Readability\Readability;
-use andreskrey\Readability\Configuration;
-use andreskrey\Readability\ParseException;
+use  marcelklehr\Readability\Readability;
+use  marcelklehr\Readability\Configuration;
+use  marcelklehr\Readability\ParseException;
 
 $readability = new Readability(new Configuration());
 
@@ -95,7 +95,7 @@ Then you pass this Configuration object to Readability. The following options ar
 - **SubstituteEntities**: default value `false`, disables the `substituteEntities` flag of libxml. Will avoid substituting HTML entities. Like `&aacute;` to á.
 - **NormalizeEntities**: default value `false`, converts UTF-8 characters to its HTML Entity equivalent. Useful to parse HTML with mixed encoding.
 - **OriginalURL**: default value `http://fakehost`, original URL from the article used to fix relative URLs.
-- **SummonCthulhu**: default value `false`, remove all `<script>` nodes via regex. This is not ideal as it might break things, but might be the only solution to [libxml problems with unescaped javascript](https://github.com/andreskrey/readability.php#known-issues). If you're not parsing Javascript tutorials, it's recommended to always set this option as `true`.
+- **SummonCthulhu**: default value `false`, remove all `<script>` nodes via regex. This is not ideal as it might break things, but might be the only solution to [libxml problems with unescaped javascript](https://github.com/ marcelklehr/readability.php#known-issues). If you're not parsing Javascript tutorials, it's recommended to always set this option as `true`.
 
 ### Debug log
 
@@ -167,17 +167,7 @@ Readability parses all the text with DOMDocument, scans the text nodes and gives
 
 ## Testing
 
-Any version of PHP installed locally should be enough to develop new features and add new test cases. If you want to be 100% sure that your change doesn't create any issues with other versions of PHP, you can use the provided Docker containers to test currently in 7.0, 7.1, 7.2, and 7.3.
-
-You'll need Docker and Docker Compose for this. To run all the tests in all the available versions just type the following command:
-
-```bash
-make test-all
-```
-
-This will start all the containers and run all the tests on every supported version of PHP. If you want to test against a specific version, you can use `make test-7.0`, `make test-7.1`, `make test-7.2`, or `make test-7.3`.
-
-If you really want to test against every supported version of PHP and every supported version of libxml, run `test-all-versions`. This will test against PHP versions 7 to 7.3 and libxml versions 2.9.4 to 2.9.9. Normally you won't need to do this unless you think you've found a bug on an specific version of libxml.
+Any version of PHP installed locally should be enough to develop new features and add new test cases.
 
 ## Code porting
 

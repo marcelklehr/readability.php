@@ -1,12 +1,12 @@
 <?php
 
-namespace andreskrey\Readability;
+namespace marcelklehr\Readability;
 
-use andreskrey\Readability\Nodes\DOM\DOMDocument;
-use andreskrey\Readability\Nodes\DOM\DOMElement;
-use andreskrey\Readability\Nodes\DOM\DOMNode;
-use andreskrey\Readability\Nodes\DOM\DOMText;
-use andreskrey\Readability\Nodes\NodeUtility;
+use marcelklehr\Readability\Nodes\DOM\DOMDocument;
+use marcelklehr\Readability\Nodes\DOM\DOMElement;
+use marcelklehr\Readability\Nodes\DOM\DOMNode;
+use marcelklehr\Readability\Nodes\DOM\DOMText;
+use marcelklehr\Readability\Nodes\NodeUtility;
 use Psr\Log\LoggerInterface;
 
 /**

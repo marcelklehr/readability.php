@@ -1,10 +1,10 @@
 <?php
 
-namespace andreskrey\Readability\Test;
+namespace marcelklehr\Readability\Test;
 
-use andreskrey\Readability\Configuration;
-use andreskrey\Readability\ParseException;
-use andreskrey\Readability\Readability;
+use marcelklehr\Readability\Configuration;
+use marcelklehr\Readability\ParseException;
+use marcelklehr\Readability\Readability;
 use voku\helper\HtmlMin;
 
 /**

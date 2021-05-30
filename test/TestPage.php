@@ -1,6 +1,6 @@
 <?php
 
-namespace andreskrey\Readability\Test;
+namespace marcelklehr\Readability\Test;
 
 class TestPage
 {
